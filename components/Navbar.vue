@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white mb-4" role="navigation">
+  <nav class="bg-white" role="navigation">
     <div class="container py-8 mx-auto px-8 md:px-0 lg:w-2/3 xl:max-w-3xl flex flex-wrap items-center justify-between">
       <div id="navbar-brand" class="mr-4 mb-4 text-center w-full block md:mb-0 md:text-left md:w-auto md:inline-block">
         <a href="/">

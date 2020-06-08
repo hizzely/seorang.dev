@@ -7,6 +7,10 @@
       <a href="https://instagram.com/hizzely" target="_blank"><img class="w-8 opacity-50 inline-block" alt="Instagram" src="https://www.iconninja.com/files/757/387/759/instagram-icon.svg"></a>
       <a href="https://hoobist.com/youtube" target="_blank"><img class="w-8 opacity-50 inline-block" alt="Youtube" src="https://www.iconninja.com/files/92/645/294/youtube-icon.svg"></a>
     </div>
-    <span class="text-gray-600">&copy; 2020 <span class="font-semibold">Rohmad Fajarudin</span>. Built with Nuxt.js &amp; Tailwind.</span>
+    <span class="text-gray-600">
+      &copy; 2020 <span class="font-semibold">Rohmad Fajarudin</span>.
+      Built with Nuxt.js &amp; Tailwind.<br/>
+      <span class="text-xs">Proof of Concept. Many features are simulated.</span>  
+    </span>
   </footer>
 </template>

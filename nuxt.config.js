@@ -41,13 +41,20 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxt/content'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+  /*
+  ** @nuxt/content configuration
+  */
+  content: {
+    //
   },
   /*
   ** Build configuration
@@ -57,6 +64,14 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+  generate: {
+    async routes() {
+      const { $content } = require('@nuxt/content')
+      const files = await $content('blog').only(['path']).fetch()
+      
+      return files.map(file => file.path === '/index' ? '/' : file.path)
     }
   }
 }

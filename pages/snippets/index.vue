@@ -13,12 +13,12 @@
             </a>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <a href="#" v-for="i in 15" :key="i" class="w-full h-32 bg-white shadow-md hover:shadow-lg border rounded-lg inline-block flex items-center justify-center">
+            <nuxt-link :to="snippet.path" v-for="(snippet, index) in snippets" :key="index" class="w-full h-32 bg-white shadow-md hover:shadow-lg border rounded-lg inline-block flex items-center justify-center">
               <div class="text-center p-4">
-                <img class="inline-block w-8 mb-2" alt="Laravel" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/120px-Laravel.svg.png">
-                <h3 class="text-sm">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</h3>
+                <img class="inline-block w-8 mb-2" :src="snippet.icon">
+                <h3 class="text-sm">{{ snippet.title }}</h3>
               </div>
-            </a>
+            </nuxt-link>
           </div>
           <div class="text-center mt-12">
             <a href="#" class="bg-white border shadow-md p-2 px-6 rounded-lg">Muat Lebih Banyak</a>
@@ -28,3 +28,15 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    async asyncData({ $content, params, error }) {
+      const snippets = await $content('snippets')
+        .only(['title', 'icon', 'description', 'path'])
+        .fetch()
+
+      return { snippets };
+    }
+  };
+</script>

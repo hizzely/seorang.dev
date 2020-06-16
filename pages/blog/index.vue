@@ -32,9 +32,7 @@
       const posts = await $content('blog')
         .only(['title', 'description', 'path'])
         .fetch()
-
-      console.log(posts)
-
+      
       return { posts };
     }
   };

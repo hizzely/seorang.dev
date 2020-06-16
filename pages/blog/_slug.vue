@@ -3,9 +3,9 @@
     <div class="container my-8 mx-auto px-8 md:px-0 lg:w-2/3 xl:max-w-3xl">
       <nuxt-link to="/blog" class="inline-block mb-8 font-semibold">Kembali</nuxt-link>
       <div id="post-header" class="mb-8">
-        <span class="text-sm">Diposting pada: {{ page.createdAt }}</span>
-        <h1 class="text-3xl font-bold">{{ page.title }}</h1>
-        <p class="text-sm">{{ page.description }}</p>
+        <span class="text-sm">{{ timePosted }} &bull; {{ readTime }}</span>
+        <h1 class="text-4xl font-bold">{{ page.title }}</h1>
+        <p class="text-lg">{{ page.description }}</p>
       </div>
       <nuxt-content :document="page"/>
     </div>
@@ -33,8 +33,29 @@ export default {
       .catch(err => {
         error({ statusCode: 404, message: "Page not found" });
       });
+    const getTimePosted = function () {
+      let date = new Date(page.createdAt)
+      let months = [
+        'Januari', 'Feburari', 'Maret',
+        'Apri', 'Mei', 'Juni',
+        'Juli', 'Agustus', 'September',
+        'Oktober', 'November', 'Desember'
+      ]
+      return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+    }
+    const getReadTime = function () {
+      let words = ''
+      let wordsPerMinute = 200
+      page.body.children.forEach(function (item) {
+        item.children.forEach(function (el) {
+          words += el.value
+        })
+      })
+      words = words.split(/\s/g).length
+      return Math.ceil(words / wordsPerMinute) + ' menit baca'
+    }
 
-    return { page };
+    return { page, readTime: getReadTime(), timePosted: getTimePosted() };
   }
 };
 </script>

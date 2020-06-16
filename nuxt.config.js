@@ -69,9 +69,13 @@ export default {
   generate: {
     async routes() {
       const { $content } = require('@nuxt/content')
-      const files = await $content('blog').only(['path']).fetch()
+      const posts = await $content('blog').only(['path']).fetch()
+      const snippets = await $content('snippets').only(['path']).fetch()
+
+      let postsArray = posts.map(post => post.path === '/index' ? '/' : post.path)
+      let snippetsArray = snippets.map(snippet => snippet.path === '/index' ? '/' : snippet.path)
       
-      return files.map(file => file.path === '/index' ? '/' : file.path)
+      return [...postsArray, ...snippetsArray]
     }
   }
 }

@@ -36,8 +36,8 @@ export default {
     const getTimePosted = function () {
       let date = new Date(page.createdAt)
       let months = [
-        'Januari', 'Feburari', 'Maret',
-        'Apri', 'Mei', 'Juni',
+        'Januari', 'Februari', 'Maret',
+        'April', 'Mei', 'Juni',
         'Juli', 'Agustus', 'September',
         'Oktober', 'November', 'Desember'
       ]

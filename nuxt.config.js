@@ -44,8 +44,20 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxt/content'
+    '@nuxt/content',
+    'nuxt-i18n'
   ],
+  /*
+  ** Localization configs
+  */
+  i18n: {
+    locales: [
+      {'code': 'id', 'file': 'id.js'}
+    ],
+    defaultLocale: 'id',
+    langDir: 'translations/',
+    lazy: true,
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

@@ -8,12 +8,12 @@
             <input class="w-1/2 h-6 border rounded-sm border-gray-400 text-center text-xs" name="search" :placeholder="$t('snippets.search')">
           </div>
           <div class="flex space-x-2 mb-6">
-            <a href="#" v-for="i in 3" :key="i" class="bg-white border shadow-sm rounded-full inline-block flex items-center justify-center">
+            <a href="#" v-for="i in 3" :key="i" class="bg-white border shadow-sm rounded-full flex items-center justify-center">
               <span class="text-xs text-center py-1 px-3">Some Tags</span>
             </a>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <nuxt-link :to="snippet.path" v-for="(snippet, index) in snippets" :key="index" class="w-full h-32 bg-white shadow-md hover:shadow-lg border rounded-lg inline-block flex items-center justify-center">
+            <nuxt-link :to="snippet.path" v-for="(snippet, index) in snippets" :key="index" class="w-full h-32 bg-white shadow-md hover:shadow-lg border rounded-lg flex items-center justify-center">
               <div class="text-center p-4">
                 <img class="inline-block w-8 mb-2" :src="snippet.icon">
                 <h3 class="text-sm">{{ snippet.title }}</h3>

@@ -4,8 +4,8 @@
       <div class="container mx-auto py-12 px-8 md:px-0 lg:w-2/3 xl:max-w-3xl space-y-16">
         <section id="snippets">
           <div id="writings-title" class="flex justify-between items-baseline mb-6">
-            <h2 class="text-2xl font-semibold">Code Snippets</h2>
-            <input class="w-1/2 h-6 border rounded-sm border-gray-400 text-center text-xs" name="search" placeholder="Cari Snippet...">
+            <h2 class="text-2xl font-semibold">{{ $t('snippets.pageTitle') }}</h2>
+            <input class="w-1/2 h-6 border rounded-sm border-gray-400 text-center text-xs" name="search" :placeholder="$t('snippets.search')">
           </div>
           <div class="flex space-x-2 mb-6">
             <a href="#" v-for="i in 3" :key="i" class="bg-white border shadow-sm rounded-full inline-block flex items-center justify-center">
@@ -21,7 +21,7 @@
             </nuxt-link>
           </div>
           <div class="text-center mt-12">
-            <a href="#" class="bg-white border shadow-md p-2 px-6 rounded-lg">Muat Lebih Banyak</a>
+            <a href="#" class="bg-white border shadow-md p-2 px-6 rounded-lg">{{ $t('snippets.btn.loadMore') }}</a>
           </div>
         </section>
       </div>

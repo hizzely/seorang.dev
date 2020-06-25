@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container my-8 mx-auto px-8 md:px-0 lg:w-2/3 xl:max-w-3xl">
-      <nuxt-link to="/blog" class="inline-block mb-8 font-semibold">Kembali</nuxt-link>
+      <nuxt-link to="/blog" class="inline-block mb-8 font-semibold">{{ $t('blogs.btn.back') }}</nuxt-link>
       <div id="post-header" class="mb-8">
         <span class="text-sm">{{ timePosted }} &bull; {{ readTime }}</span>
         <h1 class="text-4xl font-bold">{{ page.title }}</h1>

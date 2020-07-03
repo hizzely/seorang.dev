@@ -24,11 +24,16 @@
   export default {
     async asyncData({ $content, params, error }) {
       const posts = await $content('blog')
-        .where({ 'tags': { $contains: params.id } })
+        .only(['title', 'description', 'path', 'tags'])
         .fetch()
+        .then(posts => {
+          return posts.filter(post => {
+            return post.tags.includes(params.id)
+          })
+        })
         .catch(err => {
           error({ statusCode: 404, message: "No post contains the tag" });
-        });
+        })
 
       return { posts, tag: params.id }
     }

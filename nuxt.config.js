@@ -68,7 +68,7 @@ export default {
   ** @nuxt/content configuration
   */
   content: {
-    nestedProperties: ['tags']
+    //
   },
   /*
   ** Build configuration

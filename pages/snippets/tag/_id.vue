@@ -24,11 +24,16 @@
   export default {
     async asyncData({ $content, params, error }) {
       const snippets = await $content('snippets')
-        .where({ 'tags': { $contains: params.id } })
+        .only(['title', 'description', 'path', 'tags'])
         .fetch()
+        .then(snippets => {
+          return snippets.filter(snippet => {
+            return snippet.tags.includes(params.id)
+          })
+        })
         .catch(err => {
-          error({ statusCode: 404, message: "No snippet contains the tag" });
-        });
+          error({ statusCode: 404, message: "No snippet contains that tag" });
+        })
 
       return { snippets, tag: params.id }
     }

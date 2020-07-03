@@ -8,9 +8,9 @@
             <input class="w-1/2 h-6 border rounded-sm border-gray-400 text-center text-xs" name="search" :placeholder="$t('snippets.search')">
           </div>
           <div class="flex space-x-2 mb-6">
-            <a href="#" v-for="i in 3" :key="i" class="bg-white border shadow-sm rounded-full flex items-center justify-center">
-              <span class="text-xs text-center py-1 px-3">Some Tags</span>
-            </a>
+            <nuxt-link :to="'/snippets/tag/' + tag" v-for="(tag, i) in tags" :key="i" class="bg-white border shadow-sm rounded-full flex items-center justify-center">
+              <span class="text-xs text-center py-1 px-3">{{ tag }}</span>
+            </nuxt-link>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             <nuxt-link :to="snippet.path" v-for="(snippet, index) in snippets" :key="index" class="w-full h-32 bg-white shadow-md hover:shadow-lg border rounded-lg flex items-center justify-center">
@@ -33,10 +33,16 @@
   export default {
     async asyncData({ $content, params, error }) {
       const snippets = await $content('snippets')
-        .only(['title', 'icon', 'description', 'path'])
+        .only(['title', 'icon', 'description', 'path', 'tags'])
         .fetch()
+      const tags = new Set()
+      snippets.map(snippet => {
+        snippet.tags.forEach(tag => {
+          tags.add(tag)
+        })
+      })
 
-      return { snippets };
+      return { snippets, tags };
     }
   };
 </script>

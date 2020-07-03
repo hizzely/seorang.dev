@@ -23,8 +23,9 @@ export default {
     },
     snippets: {
         menu: 'Snippets',
-        pageTitle: 'Snipet Kode',
+        pageTitle: 'Snippet Kode',
         search: 'Cari snippet...',
+        byTag: 'Snippet dengan tag:',
         btn: {
             all: 'Semua snippet',
             loadMore: 'Muat Lebih Banyak...'

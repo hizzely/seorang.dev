@@ -11,6 +11,7 @@ export default {
         menu: 'Tulisan',
         pageTitle: 'Belajar Nulis',
         search: 'Cari Kata Kunci...',
+        byTag: 'Posting dengan tag:',
         btn: {
             all: 'Semua snippet',
             readMore: 'Selengkapnya',

@@ -46,11 +46,16 @@ export default {
     const getReadTime = function () {
       let words = ''
       let wordsPerMinute = 200
-      page.body.children.forEach(function (item) {
-        item.children.forEach(function (el) {
-          words += el.value
+      try {
+        page.body.children.forEach(child => {
+          if (child.element !== 'element') return // continue in anonymous fn
+          child.forEach(innerChild => {
+            words += innerChild.value
+          })
         })
-      })
+      } catch (error) {
+        console.error('Whoops, failed getting read time. Falling back...')
+      }
       words = words.split(/\s/g).length
       return Math.ceil(words / wordsPerMinute) + ' menit baca'
     }

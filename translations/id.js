@@ -2,7 +2,11 @@ export default {
     brand: 'Rohmad Fajarudin',
     home: {
         greet: 'Hai, Rohmad Disini!',
-        intro: 'Ini akan saya isi sebuah intro, tapi belum kepikiran, jadi sementara ini dulu.'
+        intro: `
+            Selamat datang di sebuah tempat dimana saya melakukan 
+            eksperimen dan mendokumentasikan apa yang telah 
+            saya pelajari, belajar dengan mencoba dan berbagi. 
+        `
     },
     about: {
         menu: 'Tentang'

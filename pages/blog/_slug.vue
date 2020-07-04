@@ -45,13 +45,14 @@ export default {
     }
     const getReadTime = function () {
       let words = ''
-      let wordsPerMinute = 200
+      let wordsPerMinute = 200 // average person reading speed
       try {
         page.body.children.forEach(child => {
-          if (child.element !== 'element') return // continue in anonymous fn
-          child.forEach(innerChild => {
-            words += innerChild.value
-          })
+          if (child.type === 'element') {
+            child.children.forEach(innerChild => {
+              words += innerChild.value
+            })
+          }
         })
       } catch (error) {
         console.error('Whoops, failed getting read time. Falling back...')

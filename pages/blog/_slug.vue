@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
   .nuxt-content h1, h2 {
     font-weight: 600;
   }

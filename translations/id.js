@@ -17,7 +17,7 @@ export default {
         search: 'Cari Kata Kunci...',
         byTag: 'Posting dengan tag:',
         btn: {
-            all: 'Semua snippet',
+            all: 'Semua tulisan',
             readMore: 'Selengkapnya',
             back: 'Kembali'
         }

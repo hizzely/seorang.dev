@@ -12,16 +12,11 @@
               <span class="text-xs text-center py-1 px-3">{{ tag }}</span>
             </nuxt-link>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <nuxt-link :to="snippet.path" v-for="(snippet, index) in snippets" :key="index" class="w-full h-32 bg-white shadow-md hover:shadow-lg border rounded-lg flex items-center justify-center">
-              <div class="text-center p-4">
-                <img class="inline-block w-8 mb-2" :src="snippet.icon">
-                <h3 class="text-sm">{{ snippet.title }}</h3>
-              </div>
-            </nuxt-link>
-          </div>
+          <SnippetCardList :snippets="snippets" />
           <div class="text-center mt-12">
-            <a href="#" class="bg-white border shadow-md p-2 px-6 rounded-lg">{{ $t('snippets.btn.loadMore') }}</a>
+            <a href="#" class="bg-white border shadow-md p-2 px-6 rounded-lg">
+              {{ $t('snippets.btn.loadMore') }}
+            </a>
           </div>
         </section>
       </div>
@@ -30,7 +25,12 @@
 </template>
 
 <script>
+  import SnippetCardList from '~/components/SnippetCardList.vue'
+
   export default {
+    components: {
+      SnippetCardList
+    },
     async asyncData({ $content, params, error }) {
       const snippets = await $content('snippets')
         .only(['title', 'icon', 'description', 'path', 'tags'])
